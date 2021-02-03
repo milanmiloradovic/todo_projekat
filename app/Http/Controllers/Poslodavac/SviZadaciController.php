@@ -13,18 +13,34 @@ class SviZadaciController extends Controller
     public function index()
     {
         $sviZadaci = Auth::user()->kreiraniZadaci()->with('assignments', 'assignments.assignedTo')->get();
-        return view('Poslodavac/sviZadaci', [
-            'zadaci' => $sviZadaci
-        ]);
+        return view('Poslodavac/sviZadaci')->with('zadaci', $sviZadaci);
     }
 
-    public function update($id)
-    {
 
-        echo $id;
-        Task::where('id', $id)->update([
-            'finished' => true
-        ]);
+    public function update($id, Request $request)
+    {
+        if ($request == null) {
+            Task::where('id', $id)->update([
+                'finished' => true
+            ]);
+        } else {
+            $task = Task::find($id);
+            $task->naziv = $request->input('naziv');
+            $task->deadline = $request->input('deadline');
+            $task->save();
+            $nizIdeva = $request->input('users');
+
+            $assignments = $task->assignments()->delete();
+            foreach ((array) $nizIdeva as $user_id) {
+                Assignment::create([
+                    'task_id' => $task->id,
+                    'assigned_to' => $user_id
+                ]);
+            }
+            return response()->json([
+                'test' => "test"
+            ]);
+        }
     }
     public function destroy($id)
     {
