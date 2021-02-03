@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
+    protected $fillable = ['naziv', 'deadline', 'user_id'];
 
     public function assignedBy()
     {
@@ -13,6 +14,6 @@ class Task extends Model
     }
     public function assignments()
     {
-        return $this->belongsTo("App\Assignment", "task_id", "id");
+        return $this->hasMany("App\Assignment", "task_id", "id");
     }
 }

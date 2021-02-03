@@ -1,29 +1,46 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import Zadatak from "./Zadatak";
 
 export default class MojiZadaci extends Component {
-    render() {
-        return (
-            <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-md-8">
-                        <div className="card">
-                            <div className="card-header">
-                                MojiZadaci Component
-                            </div>
+    constructor(props) {
+        super(props);
 
-                            <div className="card-body">
-                                I'm an mojizadaci component!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        this.state = {
+            zadaci: this.props.zadaci
+        };
+    }
+
+    render() {
+        console.log(this.state.zadaci);
+        return (
+            <table className="table table-warning table-bordered">
+                <thead className="thead-light">
+                    <tr>
+                        <th>Naziv zadatka</th>
+                        <th>Deadline</th>
+                        <th>Zavrsen</th>
+                        <th>Zadao</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {this.state.zadaci.map(z => {
+                        return <Zadatak key={z.id} zadatak={z} />;
+                    })}
+                </tbody>
+            </table>
         );
     }
 }
 
 if (document.getElementById("mojizadaci")) {
-    const element = document.getElementById("iznajmljivanja");
-    ReactDOM.render(<MojiZadaci />, document.getElementById("mojizadaci"));
+    const element = document.getElementById("mojizadaci");
+
+    const zadaci = JSON.parse(element.dataset.zadaci);
+
+    ReactDOM.render(
+        <MojiZadaci zadaci={zadaci} />,
+        document.getElementById("mojizadaci")
+    );
 }

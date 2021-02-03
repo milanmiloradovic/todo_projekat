@@ -14,7 +14,7 @@ class AssignmentsTableSeeder extends Seeder
     public function run()
     {
         $nizIdeva = User::whereHas('uloga', function ($query) {
-            return $query->where('naziv_uloge', '=', "izvrsitelj");
+            return $query->where('naziv_uloge', '=', "izvrsilac");
         })->get("id");
         for ($i = 1; $i < 14; $i++) {
             Assignment::create([

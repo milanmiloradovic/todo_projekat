@@ -14,7 +14,7 @@
                             </div>
                         @endif
 
-                        <div id="example"></div>
+                        <div id="mojizadaci" data-zadaci="{{ $zadaci }}"></div>
                     </div>
                 </div>
             </div>

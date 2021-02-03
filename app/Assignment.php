@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Assignment extends Model
 {
+    protected $fillable = ['task_id', 'assigned_to'];
     public function zadatak()
     {
         return $this->belongsTo("App\Task", "task_id", "id");

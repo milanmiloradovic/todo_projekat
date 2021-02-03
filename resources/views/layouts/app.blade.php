@@ -42,7 +42,7 @@
                                 <a href="{{ route('mojiZadaci.index') }}" class="btn btn-primary">Moji zadaci</a>
                             @endif
                             @if (Auth::user()->imaUlogu('poslodavac'))
-                                <a href="" class="btn btn-primary">Svi zadaci</a>
+                                <a href="{{ route('sviZadaci.index') }}" class="btn btn-primary">Svi zadaci</a>
                             @endif
                         @endauth
                     </ul>
@@ -69,7 +69,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 

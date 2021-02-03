@@ -15,7 +15,7 @@ class UsersSeeder extends Seeder
     {
 
         $poslodavac_id = Role::where('naziv_uloge', 'poslodavac')->first()->id;
-        $izvrsitelj_id = Role::where('naziv_uloge', 'izvrsitelj')->first()->id;
+        $izvrsilac_id = Role::where('naziv_uloge', 'izvrsilac')->first()->id;
 
         User::create([
             'name' => 'Srdjan Dincic',
@@ -27,13 +27,13 @@ class UsersSeeder extends Seeder
             'name' => 'Marko Markovic',
             'email' => 'markomarkovic@gmail.com',
             'password' => bcrypt('markomarkovic'),
-            'role_id' => $izvrsitelj_id
+            'role_id' => $izvrsilac_id
         ]);
         User::create([
             'name' => 'Milos Djordjevic',
             'email' => 'milosdjordjevic@gmail.com',
             'password' => bcrypt('milosdjordjevic'),
-            'role_id' => $izvrsitelj_id
+            'role_id' => $izvrsilac_id
         ]);
 
         echo User::where('name', 'Marko Markovic')->first()->imaUlogu("test");

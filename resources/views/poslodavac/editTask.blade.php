@@ -12,7 +12,7 @@
             </div>
         @endif
 
-        <div id="svizadaci" data-zadaci="{{ $zadaci }}"></div>
+
 
 
 

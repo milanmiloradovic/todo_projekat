@@ -19,4 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+
+
 Route::resource('/mojiZadaci', 'Izvrsilac\MojiZadaciController', ['except' => ['create', 'store', 'destroy', 'edit', 'show']])->middleware('auth.izvrsilac');
+Route::resource('/sviZadaci', 'Poslodavac\SviZadaciController', ['except' => ['create']])->middleware('auth.poslodavac');
+Route::get('/users/get', 'UserController@index')->middleware('auth.poslodavac');
