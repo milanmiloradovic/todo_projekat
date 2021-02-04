@@ -15,23 +15,22 @@
 </head>
 
 <body>
-    <div class="container h-100 "></div>
-    <div class="container d-flex h-100 justify-content-center align-items-center"">
-                 @if (Route::has('login'))
+    <div class="container vh-100 d-flex justify-content-center align-items-center">
+        <div class="">
+            @if (Route::has('login'))
 
-        @auth
-            <a href="{{ url('/home') }}">Home</a>
-        @else
-            <a href="{{ route('login') }}">Login</a>
+                @auth
+                    <a href="{{ url('/home') }}">Home</a>
+                @else
+                    <a class="btn btn-lg btn-primary" href="{{ route('login') }}">Login</a>
 
-            @if (Route::has('register'))
-                <a href="{{ route('register') }}">Register</a>
+                    @if (Route::has('register'))
+                        <a class="btn btn-lg btn-primary" href="{{ route('register') }}">Register</a>
+                    @endif
+                @endauth
+
             @endif
-        @endauth
-
-        @endif
-
-    </div>
+        </div>
     </div>
 </body>
 

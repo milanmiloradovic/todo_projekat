@@ -19,7 +19,7 @@ class SviZadaciController extends Controller
 
     public function update($id, Request $request)
     {
-        if ($request == null) {
+        if ($request->naziv == null) {
             Task::where('id', $id)->update([
                 'finished' => true
             ]);
@@ -30,7 +30,7 @@ class SviZadaciController extends Controller
             $task->save();
             $nizIdeva = $request->input('users');
 
-            $assignments = $task->assignments()->delete();
+            $task->assignments()->delete();
             foreach ((array) $nizIdeva as $user_id) {
                 Assignment::create([
                     'task_id' => $task->id,
@@ -79,5 +79,12 @@ class SviZadaciController extends Controller
                 'assigned_to' => $user_id
             ]);
         }
+    }
+    public function show($id)
+    {
+        $zadatak = Task::first()->where('id', $id)->with('komentari')->get();
+        return view('zadatak', [
+            'zadatak' => $zadatak
+        ]);
     }
 }

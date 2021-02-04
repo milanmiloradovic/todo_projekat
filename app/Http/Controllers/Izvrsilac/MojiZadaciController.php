@@ -15,6 +15,13 @@ class MojiZadaciController extends Controller
             'zadaci' => $mojiZadaci
         ]);
     }
+    public function show($id)
+    {
+        $zadatak = Task::first()->where('id', $id)->with('komentari')->get();
+        return view('zadatak', [
+            'zadatak' => $zadatak
+        ]);
+    }
 
     public function update($id)
     {

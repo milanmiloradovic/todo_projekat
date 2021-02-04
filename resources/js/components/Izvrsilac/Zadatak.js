@@ -39,6 +39,13 @@ export default class Zadatak extends Component {
                 </td>
                 <td>{this.state.assignedBy.name}</td>
                 <td>{this.state.assignedBy.email}</td>
+                <td>
+                    <a
+                        href={`http://127.0.0.1:8000/mojiZadaci/${this.state.zadatak.id}`}
+                    >
+                        Pregled
+                    </a>
+                </td>
             </tr>
         );
     }

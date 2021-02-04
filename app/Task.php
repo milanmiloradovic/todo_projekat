@@ -16,4 +16,8 @@ class Task extends Model
     {
         return $this->hasMany("App\Assignment", "task_id", "id");
     }
+    public function komentari()
+    {
+        return $this->hasMany("App\Comment", "task_id", "id");
+    }
 }

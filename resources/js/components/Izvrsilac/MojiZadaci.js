@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Zadatak from "./Zadatak";
-
+import {} from "../style.css";
 export default class MojiZadaci extends Component {
     constructor(props) {
         super(props);
@@ -14,14 +14,14 @@ export default class MojiZadaci extends Component {
     render() {
         console.log(this.state.zadaci);
         return (
-            <table className="table table-warning table-bordered">
+            <table className="table table-hover table-info table-striped header-fixed">
                 <thead className="thead-light">
                     <tr>
-                        <th>Naziv zadatka</th>
-                        <th>Deadline</th>
-                        <th>Zavrsen</th>
-                        <th>Zadao</th>
-                        <th>Email</th>
+                        <th scope="col">Naziv zadatka</th>
+                        <th scope="col">Deadline</th>
+                        <th scope="col">Zavrsen</th>
+                        <th scope="col">Zadao</th>
+                        <th scope="col">Email</th>
                     </tr>
                 </thead>
                 <tbody>

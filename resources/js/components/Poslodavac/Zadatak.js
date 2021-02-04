@@ -88,9 +88,11 @@ export default class Zadatak extends Component {
                         >
                             Izmeni
                         </button>
-                        <button className="btn btn-primary btn-block">
-                            Pogledaj
-                        </button>
+                        <a
+                            href={`http://127.0.0.1:8000/sviZadaci/${this.state.zadatak.id}`}
+                        >
+                            Pregled
+                        </a>
                     </td>
                 </tr>
             );

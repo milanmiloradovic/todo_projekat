@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
-Route::resource('/mojiZadaci', 'Izvrsilac\MojiZadaciController', ['except' => ['create', 'store', 'destroy', 'edit', 'show']])->middleware('auth.izvrsilac');
+Route::resource('/mojiZadaci', 'Izvrsilac\MojiZadaciController', ['except' => ['create', 'store', 'destroy', 'edit']])->middleware('auth.izvrsilac');
 Route::resource('/sviZadaci', 'Poslodavac\SviZadaciController', ['except' => ['create']])->middleware('auth.poslodavac');
 Route::get('/users/get', 'UserController@index')->middleware('auth.poslodavac');
+Route::get('/statistika', 'StatistikaController@index')->name('statistika')->middleware('auth.poslodavac');

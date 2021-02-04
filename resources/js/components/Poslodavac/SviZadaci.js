@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Zadatak from "./Zadatak";
 import Forma from "./Forma";
-import {} from "./style.css";
+import {} from "../style.css";
 export default class SviZadaci extends Component {
     constructor(props) {
         super(props);
