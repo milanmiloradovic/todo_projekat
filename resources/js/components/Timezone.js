@@ -49,7 +49,7 @@ export default class Timezone extends Component {
                 <input
                     onChange={this.handleChange.bind(this)}
                     name="drzava"
-                    placeholder="Drzava"
+                    placeholder="Grad"
                 ></input>
                 <input
                     type="text"

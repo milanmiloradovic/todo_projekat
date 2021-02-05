@@ -75806,7 +75806,7 @@ var Timezone = /*#__PURE__*/function (_Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChange.bind(this),
         name: "drzava",
-        placeholder: "Drzava"
+        placeholder: "Grad"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         disabled: true,

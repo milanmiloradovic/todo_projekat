@@ -15,6 +15,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
@@ -23,7 +24,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body style="background-color: #FCEADE;">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -42,7 +43,7 @@
                     <ul class="navbar-nav mr-auto">
                         @auth
                             @if (Auth::user()->imaUlogu('izvrsilac'))
-                                <a href="{{ route('mojiZadaci.index') }}" class="btn btn-primary">Moji zadaci</a>
+                                <a href="{{ route('mojiZadaci.index') }}" class="btn btn-primary ">Moji zadaci</a>
                             @endif
                             @if (Auth::user()->imaUlogu('poslodavac'))
                                 <a href="{{ route('sviZadaci.index') }}" class="btn btn-primary">Svi zadaci</a>
@@ -76,7 +77,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -93,7 +94,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main style="background-color: #FF8A5B" class="py-4">
             @yield('content')
         </main>
     </div>
