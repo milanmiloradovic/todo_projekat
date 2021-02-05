@@ -26,3 +26,4 @@ Route::resource('/mojiZadaci', 'Izvrsilac\MojiZadaciController', ['except' => ['
 Route::resource('/sviZadaci', 'Poslodavac\SviZadaciController', ['except' => ['create']])->middleware('auth.poslodavac');
 Route::get('/users/get', 'UserController@index')->middleware('auth.poslodavac');
 Route::get('/statistika', 'StatistikaController@index')->name('statistika')->middleware('auth.poslodavac');
+Route::post('/zadatak/komentar', 'CommentController@post')->name('komentar.post')->middleware('auth');

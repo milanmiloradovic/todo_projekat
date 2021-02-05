@@ -78,17 +78,18 @@ export default class Zadatak extends Component {
                     <td>
                         <button
                             onClick={this.izbrisiZadatak.bind(this)}
-                            className="btn btn-primary btn-block"
+                            className="btn btn-danger btn-block"
                         >
                             Izbrisi
                         </button>
                         <button
                             onClick={this.formaIzmena}
-                            className="btn btn-primary btn-block"
+                            className="btn btn-secondary btn-block"
                         >
                             Izmeni
                         </button>
                         <a
+                            className="btn btn-primary btn-block"
                             href={`http://127.0.0.1:8000/sviZadaci/${this.state.zadatak.id}`}
                         >
                             Pregled

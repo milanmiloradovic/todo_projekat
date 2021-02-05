@@ -15,3 +15,4 @@ require("./bootstrap");
 require("./components/Izvrsilac/MojiZadaci");
 require("./components/Poslodavac/SviZadaci");
 require("./components/Example");
+require("./components/Timezone");
