@@ -41,27 +41,39 @@ export default class Timezone extends Component {
     render() {
         return (
             <form onSubmit={this.loadDate.bind(this)}>
-                <input
-                    onChange={this.handleChange.bind(this)}
-                    name="kontinent"
-                    placeholder="Kontinent"
-                ></input>
-                <input
-                    onChange={this.handleChange.bind(this)}
-                    name="drzava"
-                    placeholder="Grad"
-                ></input>
-                <input
-                    type="text"
-                    disabled={true}
-                    value={this.state.datum}
-                ></input>
-
-                <input
-                    className="btn btn-info btn-small"
-                    type="submit"
-                    value="Nadji vreme"
-                ></input>
+                <div className="form-row">
+                    <div className="col">
+                        <input
+                            className="form-control"
+                            onChange={this.handleChange.bind(this)}
+                            name="kontinent"
+                            placeholder="Kontinent"
+                        ></input>
+                    </div>
+                    <div className="col">
+                        <input
+                            className="form-control"
+                            onChange={this.handleChange.bind(this)}
+                            name="drzava"
+                            placeholder="Grad"
+                        ></input>
+                    </div>
+                    <div className="col">
+                        <input
+                            className="form-control"
+                            type="text"
+                            disabled={true}
+                            value={this.state.datum}
+                        ></input>
+                    </div>
+                    <div className="col">
+                        <input
+                            className="btn btn-info btn-small"
+                            type="submit"
+                            value="Nadji vreme"
+                        ></input>
+                    </div>
+                </div>
             </form>
         );
     }

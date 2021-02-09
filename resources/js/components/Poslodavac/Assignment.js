@@ -25,7 +25,7 @@ export default class Assignment extends Component {
     // }
 
     render() {
-        return <b>{this.state.assignment.assigned_to.name}</b>;
+        return <li>{this.state.assignment.assigned_to.name}</li>;
     }
 }
 

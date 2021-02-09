@@ -22,11 +22,12 @@
         crossorigin="anonymous" />
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 
-<body style="background-color: #FCEADE;">
+<body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -39,19 +40,8 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <div id="timezone">TESTSETSETSET</div>
-                    <ul class="navbar-nav mr-auto">
-                        @auth
-                            @if (Auth::user()->imaUlogu('izvrsilac'))
-                                <a href="{{ route('mojiZadaci.index') }}" class="btn btn-primary ">Moji zadaci</a>
-                            @endif
-                            @if (Auth::user()->imaUlogu('poslodavac'))
-                                <a href="{{ route('sviZadaci.index') }}" class="btn btn-primary">Svi zadaci</a>
-                                <a href="{{ route('statistika') }}" class="btn btn-primary">Statistika</a>
-
-                            @endif
-
-                        @endauth
+                    <div id="timezone"></div>
+                    <ul class="navbar-nav">
 
                     </ul>
 
@@ -75,9 +65,23 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                    @auth
+                                        @if (Auth::user()->imaUlogu('izvrsilac'))
+                                            <a href="{{ route('mojiZadaci.index') }}" class="dropdown-item">Moji
+                                                zadaci</a>
+                                        @endif
+                                        @if (Auth::user()->imaUlogu('poslodavac'))
+                                            <a href="{{ route('sviZadaci.index') }}" class="dropdown-item">Svi
+                                                zadaci</a>
+                                            <a href="{{ route('statistika') }}" class="dropdown-item">Statistika</a>
+
+                                        @endif
+
+                                    @endauth
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -94,7 +98,7 @@
             </div>
         </nav>
 
-        <main style="background-color: #FF8A5B" class="py-4">
+        <main class="py-4">
             @yield('content')
         </main>
     </div>

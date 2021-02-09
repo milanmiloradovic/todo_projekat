@@ -28,10 +28,11 @@ export default class Forma extends Component {
                 option => option.value
             );
         } else value = e.target.value;
-        let zadatak = this.state.zadatak;
-        zadatak[e.target.name] = value;
-
-        this.setState({ zadatak });
+        if (this.state.zadatak) {
+            let zadatak = this.state.zadatak;
+            zadatak[e.target.name] = value;
+            this.setState({ zadatak });
+        }
         this.setState({ [e.target.name]: value });
     }
 
@@ -59,62 +60,87 @@ export default class Forma extends Component {
     ispisiFormu() {
         if (!this.state.zadatak) {
             return (
-                <table className="table table-hover table-info table-stripped table-bordered">
-                    <thead className="thead-light">
-                        <tr>
-                            <th>Naziv zadatka</th>
-                            <th>Deadline</th>
-                            <th>Izvrsioci</th>
-                            <th>Dodaj!</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <input
-                                    name="naziv"
-                                    onChange={this.handleChange.bind(this)}
-                                    className="form-control"
-                                    type="text"
-                                ></input>
-                            </td>
-                            <td>
-                                <input
-                                    name="deadline"
-                                    onChange={this.handleChange.bind(this)}
-                                    className="form-control"
-                                    type="date"
-                                ></input>
-                            </td>
-                            <td>
-                                <select
-                                    className="form-control"
-                                    name="selektovaniIzvrsioci"
-                                    onChange={this.handleChange.bind(this)}
-                                    multiple
+                <div
+                    class="modal fade"
+                    id="exampleModalLong"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-labelledby="exampleModalLongTitle"
+                    aria-hidden="true"
+                >
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5
+                                    class="modal-title"
+                                    id="exampleModalLongTitle"
                                 >
-                                    {this.state.izvrsioci.map(i => {
-                                        return (
-                                            <option value={i.id}>
-                                                {i.name}
-                                            </option>
-                                        );
-                                    })}
-                                </select>
-                            </td>
-                            <td>
+                                    Dodaj zadatak
+                                </h5>
+                                <button
+                                    type="button"
+                                    class="close"
+                                    data-dismiss="modal"
+                                    aria-label="Close"
+                                >
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <label for="naziv">Naziv zadatka</label>
+                                    <input
+                                        name="naziv"
+                                        onChange={this.handleChange.bind(this)}
+                                        className="form-control"
+                                        type="text"
+                                    ></input>
+                                    <label for="deadline">Rok</label>
+                                    <input
+                                        name="deadline"
+                                        onChange={this.handleChange.bind(this)}
+                                        className="form-control"
+                                        type="date"
+                                    ></input>
+                                    <label for="selektovaniIzvrsioci">
+                                        Izvrsioci
+                                    </label>
+                                    <select
+                                        className="form-control"
+                                        name="selektovaniIzvrsioci"
+                                        onChange={this.handleChange.bind(this)}
+                                        multiple
+                                    >
+                                        {this.state.izvrsioci.map(i => {
+                                            return (
+                                                <option value={i.id}>
+                                                    {i.name}
+                                                </option>
+                                            );
+                                        })}
+                                    </select>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button
+                                    type="button"
+                                    class="btn btn-secondary"
+                                    data-dismiss="modal"
+                                >
+                                    Close
+                                </button>
                                 <button
                                     onClick={this.dodajZadatak.bind(this)}
-                                    className="btn btn-success btn-block"
+                                    className="btn btn-success"
                                 >
                                     {this.state.tipForme == "izmeni"
                                         ? "Izmeni"
                                         : "Dodaj"}
                                 </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             );
         } else {
             return [

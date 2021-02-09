@@ -51,6 +51,14 @@ export default class SviZadaci extends Component {
 
     render() {
         return [
+            <button
+                type="button"
+                class="btn btn-primary dodajNoviZadatakDugme shadow"
+                data-toggle="modal"
+                data-target="#exampleModalLong"
+            >
+                +
+            </button>,
             <div className="">
                 <table className="table table-hover table-info table-striped header-fixed">
                     <thead className="thead-fixed thead-light">
@@ -60,7 +68,7 @@ export default class SviZadaci extends Component {
                                 style={{ cursor: "pointer" }}
                                 onClick={this.sortByDate.bind(this)}
                             >
-                                Deadline <i class="fas fa-sort"></i>
+                                Deadline <i className="fas fa-sort"></i>
                             </th>
                             <th>Zavrsen</th>
                             <th>Izvrsioci</th>
@@ -80,7 +88,6 @@ export default class SviZadaci extends Component {
                     </tbody>
                 </table>
             </div>,
-
             <Forma onSubmit={this.handleSubmit.bind(this)} />
         ];
     }

@@ -50,7 +50,7 @@ export default class Zadatak extends Component {
     prikazZadataka() {
         if (!this.state.formaIzmena) {
             return (
-                <tr>
+                <tr className="d-flex">
                     <td>{this.state.zadatak.naziv}</td>
                     <td>{this.state.zadatak.deadline}</td>
                     <td
@@ -65,63 +65,97 @@ export default class Zadatak extends Component {
                     </td>
 
                     <td align="center">
-                        {" "}
-                        {this.state.assignments.length
-                            ? this.state.assignments.map(a => {
-                                  return [
-                                      <Assignment assignment={a} />,
-                                      <br></br>
-                                  ];
-                              })
-                            : "Nema izvrsioca"}
+                        <ul className="text-left">
+                            {this.state.assignments.length
+                                ? this.state.assignments.map(a => {
+                                      return [<Assignment assignment={a} />];
+                                  })
+                                : "Nema izvrsioca"}
+                        </ul>
                     </td>
                     <td>
-                        <button
-                            onClick={this.izbrisiZadatak.bind(this)}
-                            className="btn btn-danger btn-block"
-                        >
-                            Izbrisi
-                        </button>
-                        <button
-                            onClick={this.formaIzmena}
-                            className="btn btn-secondary btn-block"
-                        >
-                            Izmeni
-                        </button>
-                        <a
-                            className="btn btn-primary btn-block"
-                            href={`http://127.0.0.1:8000/sviZadaci/${this.state.zadatak.id}`}
-                        >
-                            Pregled
-                        </a>
+                        <div className="dropdown">
+                            <button
+                                className="btn dropdown-toggle"
+                                type="button"
+                                id="akcijeMeni"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Upravljanje
+                            </button>
+                            <div
+                                className="dropdown-menu"
+                                aria-labelledby="akcijeMeni"
+                            >
+                                <button
+                                    onClick={this.izbrisiZadatak.bind(this)}
+                                    className="dropdown-item"
+                                >
+                                    Izbrisi
+                                </button>
+                                <button
+                                    onClick={this.formaIzmena}
+                                    className="dropdown-item"
+                                >
+                                    Izmeni
+                                </button>
+                                <a
+                                    className="dropdown-item"
+                                    href={`http://127.0.0.1:8000/sviZadaci/${this.state.zadatak.id}`}
+                                >
+                                    Pregled
+                                </a>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             );
         } else {
             return (
-                <tr>
+                <tr className="d-flex">
                     <Forma
                         onUpdate={this.updateHandler.bind(this)}
                         tipForme={this.state.tipForme}
                         zadatak={this.state.zadatak}
                     />
-                    ;
                     <td>
-                        <button
-                            onClick={this.izbrisiZadatak.bind(this)}
-                            className="btn btn-primary btn-block"
-                        >
-                            Izbrisi
-                        </button>
-                        <button
-                            onClick={this.formaIzmena}
-                            className="btn btn-primary btn-block"
-                        >
-                            Izmeni
-                        </button>
-                        <button className="btn btn-primary btn-block">
-                            Pogledaj
-                        </button>
+                        <div className="dropdown">
+                            <button
+                                className="btn dropdown-toggle"
+                                type="button"
+                                id="akcijeMeni"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Upravljanje
+                            </button>
+                            <div
+                                className="dropdown-menu"
+                                aria-labelledby="akcijeMeni"
+                            >
+                                <button
+                                    onClick={this.izbrisiZadatak.bind(this)}
+                                    className="dropdown-item"
+                                >
+                                    Izbrisi
+                                </button>
+                                <button
+                                    onClick={this.formaIzmena}
+                                    className="dropdown-item"
+                                >
+                                    Izmeni
+                                </button>
+                                <a
+                                    className="dropdown-item"
+                                    href={`http://127.0.0.1:8000/sviZadaci/${this.state.zadatak.id}`}
+                                >
+                                    Pregled
+                                </a>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             );
