@@ -31,7 +31,6 @@ export default class Zadatak extends Component {
                 <td>{this.state.zadatak.naziv}</td>
                 <td>{this.state.zadatak.deadline}</td>
                 <td
-                    align="center"
                     style={{ color: `${this.isFinished()}`, cursor: "pointer" }}
                     onClick={this.zavrsiZadatak.bind(this)}
                 >

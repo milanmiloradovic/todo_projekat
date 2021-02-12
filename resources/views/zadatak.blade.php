@@ -11,12 +11,18 @@
 
                     <th>Datum kreiranja zadatka</th>
                     <th>Deadline zadatka</th>
+                    <th style="width: 60%">Barcode</th>
                 </tr>
             </thead>
             <tbody>
-                <td> {{ $zadatak[0]->created_at }}</td>
+                <tr>
+                    <td> {{ $zadatak[0]->created_at }}</td>
 
-                <td> {{ $zadatak[0]->deadline }}</td>
+                    <td> {{ $zadatak[0]->deadline }}</td>
+                    <td> <img class="img img-thumbnail"
+                            src="https://barcode.tec-it.com/barcode.ashx?data=http://127.0.0.1:8000/sviZadaci/2" alt="">
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-hover table-info table-striped  ">
@@ -24,7 +30,7 @@
                 <tr>
 
                     <th style="width: 30%">Datum kreiranja komentara</th>
-                    <th style="width: 70%">Komentar</th>
+                    <th style="width: 60%">Komentar</th>
                 </tr>
             </thead>
             <tbody>

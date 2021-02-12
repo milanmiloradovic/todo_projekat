@@ -18,7 +18,7 @@ class TasksTableSeeder extends Seeder
         for ($i = 1; $i < 15; $i++) {
             Task::create([
                 'naziv' => 'Zadatak ' . $i,
-                'deadline' => Carbon::today()->addDays(30),
+                'deadline' => Carbon::today()->addDays(rand(30, 120)),
                 'user_id' => $poslodavac_id,
             ]);
         }
